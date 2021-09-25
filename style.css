@@ -1,0 +1,232 @@
+*,
+*::before,
+*::after {
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 1.5rem;
+    background-color:rgb(169, 156, 224);
+    color: whitesmoke;
+
+    display: grid;
+    grid:
+    "header header header header" auto
+    ". lists active ." auto /
+    1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;   
+}
+
+.title {
+    grid-area: header;
+    text-align: center;
+    font-size: calc(5vw + 2rem);
+    font-weight: 600;
+}
+
+.all-tasks {
+    grid-area: lists;
+}
+
+.task-list {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    list-style: "\1F44D";
+    padding-left: 1.1em;
+}
+
+.list-name {
+    cursor: pointer;
+}
+
+.list-name:hover{
+    opacity: 0.5;
+}
+
+form {
+    display: flex;
+}
+
+.btn {
+    cursor: pointer;
+    border:0;
+    padding:0;
+    background-color: transparent;
+}
+
+.btn.create {
+    font-size: 1.2em;
+    margin-right: 0.25em;
+    background-color: transparent
+    transition: opacity 250ms ease-in;
+}
+
+.btn.create:hover {
+    color: rgb(255, 0, 0);
+}
+
+.btn.delete {
+    font-size: 1em;
+    font-weight: bolder;
+    background-color: rgb(226, 4, 255);
+    color: rgb(101, 253, 0);
+    margin: 1em 0 0 0;
+    border-radius: 4px;
+    transition: 200ms ease-in
+}
+
+.btn.delete:hover {
+    color: rgb(255, 255, 255);
+}
+
+.new {
+    background: transparent;
+    border: 0;
+    color: black;
+    border-bottom: .5px solid black;
+    font-size: 1.1rem;
+    cursor: pointer;
+    order: 2;
+}
+
+.new::-webkit-input-placeholder {
+    opacity: 0.9;
+}
+
+.new:-ms-input-placeholder {
+    opacity: 0.2;
+}
+  
+  .new::-ms-input-placeholder {
+    opacity: 0.2;
+}
+
+.new:hover {
+    background: blanchedalmond;
+}
+.new:focus::placeholder {
+    opacity: 0.2;
+}
+
+.new-list {
+    font-size: 1.1rem;
+}
+
+.new-task {
+    margin-bottom:0;
+}
+
+.active-list {
+    font-weight: bolder;
+    color:rgb(170, 255, 0);
+}
+
+.todo-list {
+    --spacer: 2rem;
+    grid-area: active;
+    background: rgb(245, 247, 223);
+    color: rgb(165, 1, 83);
+}
+
+.todo-header {
+    padding: var(--spacer);
+    background: rgb(255, 210, 181);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list-title {
+    margin: 0 1em 0 0;
+}
+
+.task-count {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.todo-body {
+    padding: var(--spacer);
+    position: relative;
+}
+
+[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+}
+
+.task label {
+    display: flex;
+    align-items: center;
+   position: relative;
+   margin-bottom: 2em;
+}
+
+.task {
+    position: relative;
+}
+
+.task::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: -30%;
+    height: 1px;
+    background: rgb(255, 0, 64);
+}
+
+.custom-checkbox {
+    display: inline-block;
+    width: 0.50em;
+    height: 0.50em;
+    margin-right: 0.75em;
+    cursor: pointer;
+    border: 2px solid rgb(170, 255, 0);
+    border-radius: 50%;
+    -webkit-transform: scale(1);
+          transform: scale(1);
+    transition: -webkit-transform 300ms ease-in-out;
+    transition: transform 300ms ease-in-out;
+    transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
+}
+
+.task:hover .custom-checkbox,
+[type="checkbox"]:focus + label .custom-checkbox {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    color: rgb(255, 0, 64);
+}
+
+[type="checkbox"]:checked + label .custom-checkbox {
+    background: rgb(255, 0, 64);
+    border-color:rgb(255, 0, 64);
+    box-shadow: inset 0 0 0px 2px white;
+}
+
+.task label::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    left: 1.2em;
+    height: 3px;
+    background: rgb(255, 0, 64);
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 150ms ease-in-out;
+}
+
+[type="checkbox"]:checked + label::after {
+    transform-origin: left;
+    transform: scaleX(1);    
+}
+
+.delete-stuff {
+    display: flex;
+    justify-content: space-between;
+}
+
