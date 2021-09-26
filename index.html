@@ -11,13 +11,15 @@
     <h1 class="title">Preciso de fazer</h1>
     <div class="all-tasks">
         <h2 class="task-list-title">As minhas listas</h2>
-        <ul class="task-list">
-            <li class="list-name active-list">Hoje</li>
+        <ul class="task-list" data-lists>
+            <!-- <li class="list-name active-list">Hoje</li>
             <li class="list-name">Trabalho</li>
-            <li class="list-name">Curso SHA</li>
+            <li class="list-name">Curso SHA</li> -->
         </ul>
-        <form action="">
-            <input type="text" class="new list" placeholder="nova lista" 
+        <form action="" data-new-list-form>
+            <input type="text" class="new list" 
+            data-new-list-input
+            placeholder="nova lista" 
             aria-label="nova lista">
             <button class="btn create" aria-label="criar nova lista">+</button>
         </form>
@@ -62,5 +64,6 @@
             </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
